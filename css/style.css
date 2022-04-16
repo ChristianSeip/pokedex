@@ -1,0 +1,116 @@
+@font-face {
+    font-family: "Lato";
+    src: url("../fonts/Lato/Lato-Regular.ttf"),
+    url("../fonts/Lato/Lato-Regular.ttf");
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: rgb(245, 245, 245);
+    color: rgb(33, 33, 33);
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 470px;
+}
+
+header {
+    position: absolute;
+    width: 470px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    background-color: rgba(33, 33, 33, 0.4);
+}
+
+#pokemon-header {
+    color: rgb(245, 245, 245);
+    height: 15vh;
+    padding: 70px 35px 35px;
+}
+
+#pokemon-header h2, #pokemon-header span {
+    margin-top: 18px;
+}
+
+.pokemon-header-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+#pokemon-type {
+    display: inline;
+    padding: 2px 4px;
+    background-color: rgba(245, 245, 245, 0.4);
+    border-radius: 4px;
+    text-align: center;
+}
+
+#pokemon-image {
+    display: flex;
+    justify-content: center;
+}
+
+#pokemon-image img {
+    height: 120px;
+    width: 200px;
+    object-fit: cover;
+}
+
+input {
+    padding: 4px 12px;
+    border: unset;
+    outline: unset;
+    font-size: 1.2em;
+}
+
+input:focus {
+    border: 2px solid #FED86F;
+}
+
+button {
+    font-size: 1.2em;
+    border: unset;
+    padding: 4px 12px;
+}
+
+.bg-blue {
+    background-color: #4FAAF7;
+}
+
+.bg-red {
+    background-color: #FB6C6D;
+}
+
+.bg-green {
+    background-color: #49D0B1;
+}
+
+.bg-yellow {
+    background-color: #efc460;
+}
+
+.bg-purple {
+    background-color: #955BAE;
+}
+
+.bg-brown {
+    background-color: #C0827E;
+}
+
+.bg-black {
+    background-color: #333333;
+}
+
+.hide {
+    display: none;
+}
