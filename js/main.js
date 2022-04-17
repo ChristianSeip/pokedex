@@ -26,7 +26,7 @@ async function getPokemon(name) {
 }
 
 /**
- * Display general header infos abut 'pokemon'.
+ * Display general header infos abut the pokémon.
  */
 function getHeadInfo() {
     document.getElementById('pokemon-name').innerText = pokemon.name.firstCharToUpper();
@@ -36,9 +36,11 @@ function getHeadInfo() {
     document.getElementById('pokemon-image').getElementsByTagName('img')[0].src = pokemon.sprites.front_default;
 }
 
+/**
+ * Display general data about the pokémon.
+ */
 function getGeneralInfo() {
-    let el = document.getElementById('pokemon-data');
-    el.innerHTML = `
+    document.getElementById('pokemon-data').innerHTML = `
         <dl>
             <dt>Height:</dt>
             <dd>${pokemon.height}"</dd>
@@ -48,9 +50,27 @@ function getGeneralInfo() {
     `;
 }
 
+/**
+ * Display status data about the pokémon.
+ */
 function getStats() {
+    let list = '';
+    for(let i = 0; i < pokemon.stats.length; i++) {
+        list += `
+            <dt>${pokemon.stats[i].stat.name}</dt>
+            <dd>${pokemon.stats[i].base_stat}</dd>
+        `;
+    }
+    document.getElementById('pokemon-data').innerHTML = `
+        <dl>
+            ${list}
+        </dl>
+    `;
 }
 
+/**
+ * Display the pokémons Abilities.
+ */
 function getAbilities() {
 }
 
