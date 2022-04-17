@@ -22,6 +22,7 @@ async function getPokemon(name) {
     let response = await fetch(API + name.toLowerCase());
     pokemon = await response.json();
     getHeadInfo();
+    getGeneralInfo();
 }
 
 /**
@@ -36,6 +37,15 @@ function getHeadInfo() {
 }
 
 function getGeneralInfo() {
+    let el = document.getElementById('pokemon-data');
+    el.innerHTML = `
+        <dl>
+            <dt>Height:</dt>
+            <dd>${pokemon.height}"</dd>
+            <dt>Weight:</dt>
+            <dd>${pokemon.weight} lb</dd>
+        </dl>
+    `;
 }
 
 function getStats() {

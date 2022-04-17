@@ -99,6 +99,28 @@ header {
     color: #4FAAF7;
 }
 
+#pokemon-data {
+    position: absolute;
+    margin-left: 12px;
+    margin-top: 36px;
+}
+
+dl {
+    display: grid;
+    grid-template-columns: max-content auto;
+}
+
+dt {
+    margin-top: 12px;
+    grid-column-start: 1;
+    font-weight: bold;
+}
+
+dd {
+    margin-top: 12px;
+    grid-column-start: 2;
+}
+
 input {
     padding: 4px 12px;
     border: unset;
