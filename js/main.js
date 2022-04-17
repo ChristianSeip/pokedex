@@ -35,6 +35,15 @@ function getHeadInfo() {
     document.getElementById('pokemon-image').getElementsByTagName('img')[0].src = pokemon.sprites.front_default;
 }
 
+function getGeneralInfo() {
+}
+
+function getStats() {
+}
+
+function getAbilities() {
+}
+
 /**
  * Returns string with first char as upper case.
  *
