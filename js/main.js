@@ -1,5 +1,4 @@
 const API = 'https://pokeapi.co/api/v2/pokemon/';
-
 const TYPES = {
     'grass': 'bg-green',
     'water': 'bg-blue',
@@ -8,18 +7,39 @@ const TYPES = {
     'psychic': 'bg-purple',
     'rock': 'bg-brown',
 };
+let pokemon = {};
 
 function init() {
     getPokemon('Pikachu');
 }
 
+/**
+ *
+ * @param name
+ * @returns {Promise<void>}
+ */
 async function getPokemon(name) {
     let response = await fetch(API + name.toLowerCase());
-    let json = await response.json();
+    pokemon = await response.json();
+    getHeadInfo();
+}
 
-    document.getElementById('pokemon-name').innerText = json.name.charAt(0).toUpperCase() + json.name.slice(1);
-    document.getElementById('pokemon-id').innerText = '#' + json.id;
-    document.getElementById('pokemon-type').innerText = json.types[0].type.name;
-    document.getElementById('pokemon-header').className = TYPES[json.types[0].type.name];
-    document.getElementById('pokemon-image').getElementsByTagName('img')[0].src = json.sprites.front_default;
+/**
+ * Display general header infos abut 'pokemon'.
+ */
+function getHeadInfo() {
+    document.getElementById('pokemon-name').innerText = pokemon.name.firstCharToUpper();
+    document.getElementById('pokemon-id').innerText = '#' + pokemon.id;
+    document.getElementById('pokemon-type').innerText = pokemon.types[0].type.name;
+    document.getElementById('pokemon-header').className = TYPES[pokemon.types[0].type.name];
+    document.getElementById('pokemon-image').getElementsByTagName('img')[0].src = pokemon.sprites.front_default;
+}
+
+/**
+ * Returns string with first char as upper case.
+ *
+ * @returns {string}
+ */
+String.prototype.firstCharToUpper = function () {
+    return this.charAt(0).toUpperCase() + this.slice(1);
 }
