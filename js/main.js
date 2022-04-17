@@ -72,6 +72,18 @@ function getStats() {
  * Display the pokémons Abilities.
  */
 function getAbilities() {
+    let list = '';
+    for(let i = 0; i < pokemon.abilities.length; i++) {
+        list += `
+            <dt>${i+1}.</dt>
+            <dd>${pokemon.abilities[i].ability.name.firstCharToUpper()}</dd>
+        `;
+    }
+    document.getElementById('pokemon-data').innerHTML = `
+        <dl>
+            ${list}
+        </dl>
+    `;
 }
 
 /**
