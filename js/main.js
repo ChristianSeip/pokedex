@@ -23,12 +23,20 @@ function switchModal() {
 function showPokedex(searchString) {
     let pokemon = new Pokemon(searchString);
 
+    let t = 0;
     let intval = setInterval(() => {
-        if(pokemon.name !== typeof undefined) {
+        if(pokemon.name !== undefined) {
             new Pokedex(pokemon);
             clearInterval(intval);
         }
-    }, 800);
+        if(t === 2) {
+            document.getElementById('modal-content').innerHTML = 'Oops! Cant fetch pokemon data. Maybe this pokemon does not exist.';
+            document.getElementById('modal-content').classList.add('bg-warning');
+            switchModal();
+            clearInterval(intval);
+        }
+        t++;
+    }, 330);
 }
 
 /**

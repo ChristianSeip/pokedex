@@ -116,6 +116,11 @@ button {
     background-color: #333333;
 }
 
+.bg-warning {
+    background-color: rgb(250, 187, 187);
+    color: rgb(87, 3, 3);
+}
+
 #pokemon-list {
     list-style-type: none;
     padding: 0;
