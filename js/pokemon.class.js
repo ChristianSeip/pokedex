@@ -11,7 +11,7 @@ class Pokemon {
     abilities;
 
      constructor(param) {
-        if(param === typeof String) {
+        if(typeof param === 'string') {
             param = param.toLowerCase();
         }
         this.fetchData(param);
