@@ -135,7 +135,7 @@ class Pokemon {
     getBackgroundColor(type) {
         let color = '';
 
-        switch (type) {
+        switch (type.toLowerCase()) {
             case 'grass':
             case 'bug':
                 color = 'bg-green';

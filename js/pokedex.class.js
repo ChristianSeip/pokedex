@@ -14,8 +14,14 @@ class Pokedex {
      * @returns {string}
      */
     getPokedexHTML() {
+        let bgClass = '';
+        this.pokemon.types.forEach((type) => {
+            if(bgClass === '') {
+                bgClass = this.pokemon.getBackgroundColor(type.type.name);
+            }
+        });
         return `
-        <div id="pokemon-header" class="${this.pokemon.getBackgroundColor(this.pokemon.types[0].type.name)}">
+        <div id="pokemon-header" class="${bgClass}">
             <div class="pokemon-header-title">
                 <h2 id="pokemon-name">${this.pokemon.getName()}</h2>
                 <span id="pokemon-id">${this.pokemon.getId()}</span>
