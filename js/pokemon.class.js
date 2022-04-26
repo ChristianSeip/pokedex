@@ -111,7 +111,7 @@ class Pokemon {
     /**
      * Get pokemons list of stats.
      *
-     * @returns {*}
+     * @returns {array}
      */
     getStats() {
         return this.stats;
@@ -120,12 +120,18 @@ class Pokemon {
     /**
      * Get pokemons list of abilities.
      *
-     * @returns {*}
+     * @returns {array}
      */
     getAbilities() {
         return this.abilities;
     }
 
+    /**
+     * Get background color css class by pokemon type.
+     *
+     * @param {string} type
+     * @returns {string}
+     */
     getBackgroundColor(type) {
         let color = '';
 

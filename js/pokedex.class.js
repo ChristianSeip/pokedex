@@ -8,6 +8,11 @@ class Pokedex {
         switchModal();
     }
 
+    /**
+     * Get pokemon informations formatted as html element.
+     *
+     * @returns {string}
+     */
     getPokedexHTML() {
         return `
         <div id="pokemon-header" class="${this.pokemon.getBackgroundColor(this.pokemon.types[0].type.name)}">
@@ -34,6 +39,11 @@ class Pokedex {
         `;
     }
 
+    /**
+     * Get formatted list of pokemon types.
+     *
+     * @returns {string}
+     */
     getTypeListHTML() {
         let types = this.pokemon.getTypes();
         let list = ``;
@@ -43,6 +53,11 @@ class Pokedex {
         return list;
     }
 
+    /**
+     * Get formatted list of pokemon base stats.
+     *
+     * @returns {string}
+     */
     getStatListHTML() {
         let stats = this.pokemon.getStats();
         let list = `

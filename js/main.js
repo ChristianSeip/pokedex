@@ -12,14 +12,25 @@ function init() {
     }, 800);
 }
 
+/**
+ * Load pokemon card list.
+ */
 function loadCards() {
     pokemons.forEach((pokemon) => new PokemonCard(pokemon, document.getElementById('pokemon-list')));
 }
 
+/**
+ * Switch Modal visibility.
+ */
 function switchModal() {
     document.getElementById('modal').classList.toggle('hide');
 }
 
+/**
+ * Show Pokedex window as modal.
+ *
+ * @param searchString
+ */
 function showPokedex(searchString) {
     let pokemon = new Pokemon(searchString);
 
