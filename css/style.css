@@ -160,6 +160,8 @@ button {
 #modal-content {
     height: 300px;
     width: 400px;
+    background-color: rgb(245, 245, 245);
+    color: rgb(33, 33, 33);
 }
 
 .btn-modal-close {
@@ -232,22 +234,35 @@ button {
     border-top-right-radius: 18px;
 }
 
-dl {
+#pokemon-data dl {
     display: grid;
     grid-template-columns: max-content auto;
 }
 
-dt {
+#pokemon-data dl dt {
     margin-top: 12px;
     grid-column-start: 1;
     font-weight: bold;
 }
 
-dd {
+#pokemon-data dl dd {
     margin-top: 12px;
     grid-column-start: 2;
     text-align: right;
     margin-right: 24px;
+}
+
+#impress {
+    margin-right: 24px;
+    margin-left: 24px;
+}
+
+#impress dl dt {
+    font-weight: bold;
+}
+
+#impress dl dd {
+    margin: 6px 0 12px;
 }
 
 @media screen and (max-width: 550px){

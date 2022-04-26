@@ -50,6 +50,26 @@ function showPokedex(searchString) {
     }, 330);
 }
 
+function getImpress() {
+    let name = 'Your Name';
+    let address = 'Your Address';
+    let phone = '+00 123 555 321';
+    let mail = 'mail@example.com'
+
+    document.getElementById('modal-content').innerHTML = `
+    <div id="impress">
+        <dl>
+            <dt>Provider</dt>
+            <dd><strong>${name}</strong><br>${address}</dd>
+            <dt>Phone Contact</dt>
+            <dd>${phone}</dd>
+            <dt>Mail Contact</dt>
+            <dd>${mail}</dd>
+        </dl>
+    </div>`;
+    switchModal();
+}
+
 /**
  * Returns string with first char as upper case.
  *
