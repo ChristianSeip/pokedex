@@ -1,89 +1,34 @@
-const API = 'https://pokeapi.co/api/v2/pokemon/';
-const TYPES = {
-    'grass': 'bg-green',
-    'water': 'bg-blue',
-    'fire': 'bg-red',
-    'electric': 'bg-yellow',
-    'psychic': 'bg-purple',
-    'rock': 'bg-brown',
-};
-let pokemon = {};
+let pokemons = [];
 
 function init() {
-    getPokemon('Pikachu');
-}
-
-/**
- *
- * @param name
- * @returns {Promise<void>}
- */
-async function getPokemon(name) {
-    let response = await fetch(API + name.toLowerCase());
-    pokemon = await response.json();
-    getHeadInfo();
-    getGeneralInfo();
-}
-
-/**
- * Display general header infos abut the pokémon.
- */
-function getHeadInfo() {
-    document.getElementById('pokemon-name').innerText = pokemon.name.firstCharToUpper();
-    document.getElementById('pokemon-id').innerText = '#' + pokemon.id;
-    document.getElementById('pokemon-type').innerText = pokemon.types[0].type.name;
-    document.getElementById('pokemon-header').className = TYPES[pokemon.types[0].type.name];
-    document.getElementById('pokemon-image').getElementsByTagName('img')[0].src = pokemon.sprites.front_default;
-}
-
-/**
- * Display general data about the pokémon.
- */
-function getGeneralInfo() {
-    document.getElementById('pokemon-data').innerHTML = `
-        <dl>
-            <dt>Height:</dt>
-            <dd>${pokemon.height}"</dd>
-            <dt>Weight:</dt>
-            <dd>${pokemon.weight} lb</dd>
-        </dl>
-    `;
-}
-
-/**
- * Display status data about the pokémon.
- */
-function getStats() {
-    let list = '';
-    for(let i = 0; i < pokemon.stats.length; i++) {
-        list += `
-            <dt>${pokemon.stats[i].stat.name}</dt>
-            <dd>${pokemon.stats[i].base_stat}</dd>
-        `;
+    for(let i = 1; i < 43; i++) {
+        pokemons.push(new Pokemon(i));
     }
-    document.getElementById('pokemon-data').innerHTML = `
-        <dl>
-            ${list}
-        </dl>
-    `;
+    let intval = setInterval(() => {
+        if(pokemons[0].name !== typeof undefined) {
+            loadCards();
+            clearInterval(intval);
+        }
+    }, 800);
 }
 
-/**
- * Display the pokémons Abilities.
- */
-function getAbilities() {
-    let list = '';
-    for(let i = 0; i < pokemon.abilities.length; i++) {
-        list += `
-            <dt>${i+1}.</dt>
-            <dd>${pokemon.abilities[i].ability.name.firstCharToUpper()}</dd>
-        `;
-    }
-    document.getElementById('pokemon-data').innerHTML = `
-        <dl>
-            ${list}
-        </dl>
-    `;
+function loadCards() {
+    pokemons.forEach((pokemon) => new PokemonCard(pokemon, document.getElementById('pokemon-list')));
+}
+
+function switchModal() {
+    document.getElementById('modal').classList.toggle('hide');
+}
+
+function showPokedex(searchString) {
+    let pokemon = new Pokemon(searchString);
+
+    let intval = setInterval(() => {
+        if(pokemon.name !== typeof undefined) {
+            new Pokedex(pokemon);
+            clearInterval(intval);
+        }
+    }, 800);
 }
 
 /**

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pokédex</title>
+    <title>Title</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,40 +9,37 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/pokemon.class.js"></script>
+    <script src="js/pokemon-card.class.js"></script>
+    <script src="js/pokedex.class.js"></script>
     <script src="js/main.js"></script>
 </head>
 <body onload="init()">
+<header class="main-header">
+    <h1>PoKéDeX</h1>
 
-<div class="container">
-    <header>
-        <div class="search-bar">
-            <input id="search" type="text" placeholder="Pikachu">
-            <button onclick="getPokemon(document.getElementById('search').value)"><i class="fa-solid fa-search"></i><span class="hide">Search</span></button>
+    <div class="search-bar">
+        <input id="search" type="search" placeholder="Pikachu">
+        <button onclick="showPokedex(document.getElementById('search').value)">
+            <i class="fa-solid fa-search"></i><span class="hide">Search</span>
+        </button>
+    </div>
+
+    <nav class="main-navigation">
+        <ul>
+            <li>Impresum</li>
+        </ul>
+    </nav>
+</header>
+
+<div class="main-container">
+    <div id="modal" class="hide">
+        <div id="modal-content">
         </div>
-    </header>
-
+    </div>
     <main>
-        <div id="pokemon-header" class="bg-green">
-            <div class="pokemon-header-title">
-                <h2 id="pokemon-name">Bulbasaur</h2>
-                <span id="pokemon-id">#1</span>
-            </div>
-            <div id="pokemon-type"></div>
-            <div id="pokemon-image">
-                <img src="">
-            </div>
-        </div>
-        <div class="content">
-            <nav>
-                <ul>
-                    <li onclick="getGeneralInfo()">General</li>
-                    <li onclick="getStats()">Stats</li>
-                    <li onclick="getAbilities()">Abilities</li>
-                </ul>
-            </nav>
-            <div id="pokemon-data">
-            </div>
-        </div>
+        <ul id="pokemon-list">
+        </ul>
     </main>
 </div>
 
