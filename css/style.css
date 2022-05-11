@@ -31,6 +31,10 @@ body {
     background-color: #49D0B1;
 }
 
+.bg-light-green {
+    background-color: #19de19;
+}
+
 .bg-yellow {
     background-color: #efc460;
 }
@@ -135,6 +139,10 @@ button {
     width: 192px;
     text-align: center;
     cursor: pointer;
+}
+
+#pokemon-list li:hover {
+    transform: scale(1.2);
 }
 
 .pokemon-card-header-image {

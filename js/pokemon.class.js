@@ -143,8 +143,12 @@ class Pokemon {
             case 'steel':
                 color = 'bg-gray';
                 break;
+            case 'poison':
+                color = 'bg-light-green ';
+                break;
             case 'dark':
             case 'normal':
+            default:
                 color = 'bg-black';
                 break;
         }

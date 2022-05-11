@@ -37,42 +37,16 @@ function switchModal() {
  * @param searchString
  */
 function showPokedex(searchString) {
-    let pokemon = new Pokemon(searchString);
-
-    let t = 0;
-    let intval = setInterval(() => {
-        if(pokemon.name !== undefined) {
-            new Pokedex(pokemon);
-            clearInterval(intval);
-        }
-        if(t === 2) {
+    fetchData(searchString.toString().toLowerCase()).then((result) => {
+        if(Object.keys(result).length === 0) {
             document.getElementById('modal-content').innerHTML = 'Oops! Cant fetch pokemon data. Maybe this pokemon does not exist.';
             document.getElementById('modal-content').classList.add('bg-warning');
             switchModal();
-            clearInterval(intval);
+            return;
         }
-        t++;
-    }, 330);
-}
-
-function getImpress() {
-    let name = 'Your Name';
-    let address = 'Your Address';
-    let phone = '+00 123 555 321';
-    let mail = 'mail@example.com'
-
-    document.getElementById('modal-content').innerHTML = `
-    <div id="impress">
-        <dl>
-            <dt>Provider</dt>
-            <dd><strong>${name}</strong><br>${address}</dd>
-            <dt>Phone Contact</dt>
-            <dd>${phone}</dd>
-            <dt>Mail Contact</dt>
-            <dd>${mail}</dd>
-        </dl>
-    </div>`;
-    switchModal();
+        let pokemon = new Pokemon(result);
+            new Pokedex(pokemon);
+    });
 }
 
 /**
