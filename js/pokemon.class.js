@@ -1,6 +1,5 @@
 class Pokemon {
 
-    API = 'https://pokeapi.co/api/v2/pokemon/';
     name;
     id;
     types;
@@ -10,41 +9,24 @@ class Pokemon {
     stats;
     abilities;
 
-     constructor(param) {
-        if(typeof param === 'string') {
-            param = param.toLowerCase();
-        }
-        this.fetchData(param);
-    }
-
-    /**
-     * Fetch pokemon data from api.
-     *
-     * @param {string} param - pokemon name or id
-     * @returns {Promise<void>}
-     */
-    async fetchData(param) {
-        let response = await fetch(this.API + param);
-        if(response.ok)  {
-            let monster = await response.json();
-            this.initData(monster);
-        }
+    constructor(pokemon) {
+        this.initData(pokemon);
     }
 
     /**
      * Init fetched pokemon data.
      *
-     * @param {object} monster - JSON object of pokemon
+     * @param {object} pokemon - JSON object of pokemon
      */
-    initData(monster) {
-        this.name = monster.name;
-        this.id = monster.id;
-        this.types = monster.types;
-        this.image = monster.sprites.front_default;
-        this.height = monster.height;
-        this.weight = monster.weight;
-        this.stats = monster.stats;
-        this.abilities = monster.abilities;
+    initData(pokemon) {
+        this.name = pokemon.name;
+        this.id = pokemon.id;
+        this.types = pokemon.types;
+        this.image = pokemon.sprites.front_default;
+        this.height = pokemon.height;
+        this.weight = pokemon.weight;
+        this.stats = pokemon.stats;
+        this.abilities = pokemon.abilities;
     }
 
     /**

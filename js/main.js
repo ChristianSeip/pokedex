@@ -1,22 +1,27 @@
-let pokemons = [];
+let API = 'https://pokeapi.co/api/v2/pokemon/';
 
-function init() {
-    for(let i = 1; i < 43; i++) {
-        pokemons.push(new Pokemon(i));
+async function init() {
+    for(let i = 1; i < 152; i++) {
+        fetchData(i.toString()).then((pokemon) => {
+            new PokemonCard(new Pokemon(pokemon), document.getElementById('pokemon-list'));
+        });
     }
-    let intval = setInterval(() => {
-        if(pokemons[0].name !== typeof undefined) {
-            loadCards();
-            clearInterval(intval);
-        }
-    }, 800);
 }
 
 /**
- * Load pokemon card list.
+ * Fetch pokemon data from api.
+ *
+ * @param {string} param - pokemon name or id
+ * @returns {Promise}
  */
-function loadCards() {
-    pokemons.forEach((pokemon) => new PokemonCard(pokemon, document.getElementById('pokemon-list')));
+async function fetchData(param) {
+    let response = await fetch(API + param);
+    if(response.ok)  {
+        return await response.json();
+    }
+    else {
+        return {};
+    }
 }
 
 /**
