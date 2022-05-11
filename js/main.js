@@ -1,4 +1,5 @@
 let API = 'https://pokeapi.co/api/v2/pokemon/';
+let IS_MODAL_HIDDEN = true;
 
 async function init() {
     for(let i = 1; i < 152; i++) {
@@ -28,7 +29,17 @@ async function fetchData(param) {
  * Switch Modal visibility.
  */
 function switchModal() {
-    document.getElementById('modal').classList.toggle('hide');
+    let modal = document.getElementById('modal');
+    if(IS_MODAL_HIDDEN) {
+        modal.classList.remove('fade-out', 'hide');
+        modal.classList.add('fade-in');
+    }
+    else {
+        modal.classList.remove('fade-in');
+        modal.classList.add('fade-out');
+        setTimeout(() => modal.classList.add('hide'), 1100);
+    }
+    IS_MODAL_HIDDEN = !IS_MODAL_HIDDEN;
 }
 
 /**

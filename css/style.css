@@ -273,6 +273,36 @@ button {
     margin: 6px 0 12px;
 }
 
+.fade-in {
+    animation-name: FadeIn;
+    animation-duration: 1.2s;
+    transition-timing-function: linear;
+}
+
+.fade-out {
+    animation-name: FadeOut;
+    animation-duration: 1.2s;
+    transition-timing-function: linear;
+}
+
+@keyframes FadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
 @media screen and (max-width: 550px){
     .main-header {
         flex-direction: column;
